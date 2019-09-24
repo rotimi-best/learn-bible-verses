@@ -8,6 +8,7 @@ const UserSchema = new Schema({
     userName: String,
     userEmail: String,
     chatId: Number,
+    step: String,
     // Add more fields if needed
 })
 

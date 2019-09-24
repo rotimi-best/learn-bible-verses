@@ -5,4 +5,7 @@ module.exports = {
         STAGING: 'staging',
         LOCAL: 'local',
     },
+    STEPS: {
+        START: 'start',
+    },
 }
