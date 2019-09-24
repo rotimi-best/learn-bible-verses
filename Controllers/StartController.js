@@ -1,6 +1,6 @@
 const { ADMIN_CHAT_ID } = process.env
 
-const getBot = require('../modules/bot')
+const getBot = require('../modules/getBot')
 const { insertNewUser } = require('../modules/user')
 
 const bot = getBot()
