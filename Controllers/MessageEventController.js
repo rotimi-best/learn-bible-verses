@@ -1,5 +1,3 @@
-const { log } = console
-
 const getBot = require('../modules/getBot')
 const { toAdminChatAndBackToUser } = require('../modules')
 
