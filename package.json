@@ -7,7 +7,7 @@
     "test": "npm run test",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "prod": "npm install && node index.js"
+    "prod": "npm install && npm start"
   },
   "repository": {
     "type": "git",
