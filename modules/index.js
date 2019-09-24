@@ -97,6 +97,16 @@ const isMobilePhoneValid = phone => {
 const increaseDayByNumber = no =>
     new Date(new Date().getTime() + no * 24 * 60 * 60 * 1000)
 
+const toAdminChatAndBackToUser = (shouldForward, bot, from, message_id) => {
+    if (shouldForward) {
+        bot.forwardMessage(ADMIN_CHAT_ID, from.id, message_id).then(res => {
+            bot.onReplyToMessage(res.chat.id, res.message_id, async answer => {
+                bot.sendMessage(from.id, answer.text)
+            })
+        })
+    }
+}
+
 module.exports = {
     date,
     inlineCreateLinkButton,
@@ -107,4 +117,5 @@ module.exports = {
     sleep,
     time,
     useRightRussianWordForNumber,
+    toAdminChatAndBackToUser,
 }
