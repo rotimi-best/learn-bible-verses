@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+    bot-boilerplate:
+        command: npm run prod
+        restart: on-failure:100
+        build: .
+        volumes:
+            - .:/app/
+            - /app/node_modules
+        ports:
+            - '3010:3040'
+        env_file: ./.env
