@@ -4,7 +4,10 @@
   "description": "Our very own opinionated boiler plate for bots",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "prod": "npm install && node index.js"
   },
   "repository": {
     "type": "git",
