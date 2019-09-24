@@ -1,0 +1,19 @@
+{
+  "name": "bot-boilerplate",
+  "version": "1.0.0",
+  "description": "Our very own opinionated boiler plate for bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mirai-org/bot-boilerplate.git"
+  },
+  "author": "mirai team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mirai-org/bot-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Mirai-org/bot-boilerplate#readme"
+}
