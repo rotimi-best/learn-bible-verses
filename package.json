@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Mirai-org/bot-boilerplate/issues"
   },
-  "homepage": "https://github.com/Mirai-org/bot-boilerplate#readme"
+  "homepage": "https://github.com/Mirai-org/bot-boilerplate#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "mongoose": "^5.7.1",
+    "mongoose-timestamp": "^0.6.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "nodemon": "^1.19.2"
+  }
 }
