@@ -7,4 +7,6 @@ module.exports = () => {
     if (!bot) {
         bot = new TelegramBot(BOT_TOKEN, { polling: true })
     }
+
+    return bot
 }
