@@ -6,5 +6,6 @@ module.exports = {
         require('./templates/get')(UserModel, params, sort, selectedFields),
     updateUser: (findField, setField) =>
         require('./templates/update')(UserModel, findField, setField),
-    deleteUser: findField => require('./templates/update')(findField),
+    deleteUser: findField =>
+        require('./templates/delete')(UserModel, findField),
 }
