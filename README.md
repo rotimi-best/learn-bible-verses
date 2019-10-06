@@ -13,3 +13,15 @@ These are list of instructions to follow after creating your repo from this repo
     - `name` value in the package.json to the name of your project;
     - Go to `docker-compose.yml`, change `bot-boilerplate` to the name of your project;
     - In that same file change the ports from `3010:3040` to ones that are free;
+    
+## Docker Commands
+
+`docker-compose stop` - отсановить все контейнеры
+
+`docker-compose up -d` - поднять все контейнеры
+
+`docker-compse ps` - посмотреть запущенные контейнеры
+
+`docker-compose up name_contаiner` - поднять один интересующий контейнер из docker-compose.yml
+
+> все команды выполнять внутри папки с проектом
