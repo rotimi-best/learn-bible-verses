@@ -1,4 +1,5 @@
 const winston = require('winston')
+const [mainFolderName] = process.cwd().split('/').splice(-1)
 
 winston.configure({
     format: winston.format.combine(
@@ -17,7 +18,7 @@ winston.configure({
         }),
         new winston.transports.File({
             json: false,
-            filename: './logs/wishbot.log',
+            filename: `./logs/${mainFolderName}.log`,
             level: 'info',
             maxsize: 5242880,
         }),
