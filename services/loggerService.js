@@ -5,7 +5,10 @@ winston.configure({
         winston.format.timestamp({
             format: () => new Date(Date.now()).toUTCString(),
         }),
-        winston.format.json(),
+        winston.format.colorize(),
+        winston.format.printf(
+            info => `=========${info.timestamp}=========\nLevel: ${info.level}\nMessage: ${info.message}\n\n`
+        )
     ),
     transports: [
         new winston.transports.Console({
