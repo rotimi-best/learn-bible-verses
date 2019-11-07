@@ -45,18 +45,18 @@ const { pid } = process
 
 process
     .on('SIGINT', () => {
-        LogService.log('info', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} Process ${pid} stopped manually`)
+        LogService.log('info', `${__filename} ${__line} Process ${pid} stopped manually`)
         process.exit(0)
     })
     .on('SIGTERM', () => {
-        LogService.log('info', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} Process ${pid} stopped`)
+        LogService.log('info', `${__filename} ${__line} Process ${pid} stopped`)
         process.exit(0)
     })
     .on('unhandledRejection', reason => {
         LogService.log('error', reason.stack.toString())
-        LogService.log('error', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} Unhandled rejection`)
+        LogService.log('error', `${__filename} ${__line} Unhandled rejection`)
     })
     .on('uncaughtException', err => {
         LogService.log('error', err.stack.toString())
-        LogService.log('error', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} Uncaught exception`)
+        LogService.log('error', `${__filename} ${__line} Uncaught exception`)
     })

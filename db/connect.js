@@ -10,7 +10,7 @@ module.exports = async () => {
         })
     } catch (error) {
         LogService.log('error', error.stack.toString())
-        LogService.log('error', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} DATABASE CONNECTION ERROR`)
+        LogService.log('error', `${__filename} ${__line} DATABASE CONNECTION ERROR`)
     }
 
     mongoose.Promise = global.Promise
@@ -18,7 +18,7 @@ module.exports = async () => {
 
     db.on('error', error => {
         LogService.log('error', error.stack.toString())
-        LogService.log('error', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} DATABASE CONNECTION ERROR`)
+        LogService.log('error', `${__filename} ${__line} DATABASE CONNECTION ERROR`)
     })
 
     db.once('open', () => {
