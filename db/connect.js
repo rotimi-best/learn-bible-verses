@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const { MONGO_URI } = require('../helpers/dbConfig')
 const LogService = require('../services/loggerService')
-const { date, time } = require('../modules')
 
 module.exports = async () => {
     try {
@@ -11,7 +10,7 @@ module.exports = async () => {
         })
     } catch (error) {
         LogService.log('error', error.stack.toString())
-        LogService.log('error', `${date()} ${time()} ${__filename} ${__line} DATABASE CONNECTION ERROR`)
+        LogService.log('error', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} DATABASE CONNECTION ERROR`)
     }
 
     mongoose.Promise = global.Promise
@@ -19,7 +18,7 @@ module.exports = async () => {
 
     db.on('error', error => {
         LogService.log('error', error.stack.toString())
-        LogService.log('error', `${date()} ${time()} ${__filename} ${__line} DATABASE CONNECTION ERROR`)
+        LogService.log('error', `${new Date(Date.now()).toUTCString()} ${__filename} ${__line} DATABASE CONNECTION ERROR`)
     })
 
     db.once('open', () => {
