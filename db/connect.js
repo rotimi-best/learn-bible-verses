@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const { MONGO_URI } = require('../helpers/dbConfig')
-const LogService = require('../services/loggerService')
+const { log } = require('../services/loggerService')
 
 module.exports = async () => {
     try {
@@ -9,20 +9,20 @@ module.exports = async () => {
             useUnifiedTopology: true,
         })
     } catch (error) {
-        LogService.log('error', error.stack.toString())
-        LogService.log('error', `${__filename} ${__line} DATABASE CONNECTION ERROR`)
+        log('error', error.stack.toString())
+        log('error', `${__filename} ${__line} DATABASE CONNECTION ERROR`)
     }
 
     mongoose.Promise = global.Promise
     const db = mongoose.connection
 
     db.on('error', error => {
-        LogService.log('error', error.stack.toString())
-        LogService.log('error', `${__filename} ${__line} DATABASE CONNECTION ERROR`)
+        log('error', error.stack.toString())
+        log('error', `${__filename} ${__line} DATABASE CONNECTION ERROR`)
     })
 
     db.once('open', () => {
-        LogService.log('info', 'DATABASE HAS SUCCESSFULLY BEING OPENED')
+        log('info', 'DATABASE HAS SUCCESSFULLY BEING OPENED')
     })
 
     return db
