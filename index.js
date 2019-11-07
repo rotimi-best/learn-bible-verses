@@ -1,11 +1,14 @@
 require('dotenv').config()
-require('./helpers/additionalInit');
+require('./helpers/additionalInit')
 
 const connectToDb = require('./db/connect')
 const CallbackQueryController = require('./Controllers/CallbackQueryController')
 const MessageEventController = require('./Controllers/MessageEventController')
 const StartController = require('./Controllers/StartController')
-const { log } = require('./services/loggerService')
+const {
+    info: infoLogger,
+    error: errorLogger,
+} = require('./services/loggerService')
 
 /**
  *
@@ -45,18 +48,20 @@ const { pid } = process
 
 process
     .on('SIGINT', () => {
-        log('info', `${__filename} ${__line} Process ${pid} stopped manually`)
+        infoLogger(`${__filename}\n${__line}\nProcess ${pid} stopped manually`)
         process.exit(0)
     })
     .on('SIGTERM', () => {
-        log('info', `${__filename} ${__line} Process ${pid} stopped`)
+        infoLogger(`${__filename}\n${__line}\nProcess ${pid} stopped`)
         process.exit(0)
     })
     .on('unhandledRejection', reason => {
-        log('error', reason.stack.toString())
-        log('error', `${__filename} ${__line} Unhandled rejection`)
+        errorLogger(
+            `${__filename}\n${__line}\nUnhandled rejection\n${reason.stack.toString()}`
+        )
     })
     .on('uncaughtException', err => {
-        log('error', err.stack.toString())
-        log('error', `${__filename} ${__line} Uncaught exception`)
+        errorLogger(
+            `${__filename} ${__line} Uncaught exception\n${err.stack.toString()}`
+        )
     })
