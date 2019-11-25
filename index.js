@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { DEVOPS_CHAT_ID } = process.env
 require('./helpers/additionalInit')
 
 const connectToDb = require('./db/connect')
@@ -44,6 +45,13 @@ bot.on('message', MessageEventController)
  *
  */
 bot.on('callback_query', CallbackQueryController)
+
+const sendDevOps = msg => {
+    bot.sendMessage(DEVOPS_CHAT_ID, msg).catch(err =>
+        errorLogger(`Error sending message to devops: ${err}`)
+    )
+}
+
 const { pid } = process
 
 process
@@ -56,12 +64,12 @@ process
         process.exit(0)
     })
     .on('unhandledRejection', reason => {
-        errorLogger(
-            `${__filename}\n${__line}\nUnhandled rejection\n${reason.stack.toString()}`
-        )
+        const errorMsg = `${__filename}\n${__line}\nUnhandled rejection\n${reason}`
+        sendDevOps(errorMsg)
+        errorLogger(errorMsg)
     })
     .on('uncaughtException', err => {
-        errorLogger(
-            `${__filename} ${__line} Uncaught exception\n${err.stack.toString()}`
-        )
+        const errorMsg = `${__filename} ${__line} Uncaught exception\n${err}`
+        sendDevOps(errorMsg)
+        errorLogger(errorMsg)
     })
