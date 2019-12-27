@@ -16,12 +16,10 @@ const insertNewUser = async messageObject => {
     } = messageObject
     let user
 
-    if (chatId == ADMIN_CHAT_ID) {
-        return user
-    }
-
     user = await getUser({ chatId })
+
     log('USER', user)
+
     if (!user.length) {
         user = await addUser({
             firstName,

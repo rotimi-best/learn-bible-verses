@@ -1,3 +1,5 @@
+const { ADMIN_CHAT_ID } = process.env
+
 /**
  *
  * Calculate the length of a based in value
@@ -109,7 +111,6 @@ const toAdminChatAndBackToUser = (shouldForward, bot, from, message_id) => {
 
 module.exports = {
     date,
-    inlineCreateLinkButton,
     isMobilePhoneValid,
     increaseDayByNumber,
     isNumber,
