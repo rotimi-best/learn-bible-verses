@@ -1,6 +1,6 @@
 version: '3.1'
 services:
-    bot-boilerplate:
+    learn-bible-verses:
         command: npm run prod
         restart: on-failure:100
         build: .

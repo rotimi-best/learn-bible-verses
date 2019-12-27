@@ -1,27 +1,24 @@
-# bot-boilerplate
+# learn-bible-verses
 
-Our very own opinionated boiler plate for bots
+Helps users learn bible verses daily.
 
-## Todo
+## Goal
 
-These are list of instructions to follow after creating your repo from this repo:
+Make a bot that helps you learn bible verses
 
-1. Create a `.env` file and copy all that's in the `dotenv` file into it, then delete the `dotenv`. Make sure you enter the required values before starting the server.
+### Commands
 
-2. Change the following info:
+1. **/start** or **/menu**
+    - Message: Hey Best, I will help you learn bible verses
+    - Buttons: Learn New, Test Knowledge
 
-    - `name` value in the package.json to the name of your project;
-    - Go to `docker-compose.yml`, change `bot-boilerplate` to the name of your project;
-    - In that same file change the ports from `3010:3040` to ones that are free;
-    
-## Docker Commands
+2. **/learnnew** - Learn new bible verses
+    - Message: Where should I get the verses from?
+    - Buttons: Popular, Topic
 
-`docker-compose stop` - отсановить все контейнеры
+3. **/testknowledge** - Take test to know if you remember a bible verse.
+    - Message: Choose a category.
+    - Buttons: Popular, From your bible verses
 
-`docker-compose up -d` - поднять все контейнеры
-
-`docker-compse ps` - посмотреть запущенные контейнеры
-
-`docker-compose up name_contаiner` - поднять один интересующий контейнер из docker-compose.yml
-
-> все команды выполнять внутри папки с проектом
+4. **/mybibleverses** - See the amount
+5. **/addabibleverse** - Add a bible verse to your list

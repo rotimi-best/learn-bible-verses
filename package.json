@@ -1,7 +1,7 @@
 {
-  "name": "bot-boilerplate",
+  "name": "learn-bible-verses",
   "version": "1.0.0",
-  "description": "Our very own opinionated boiler plate for bots",
+  "description": "Helps users learn bible verses daily.",
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mirai-org/bot-boilerplate.git"
+    "url": "git+https://github.com/rotimi-best/learn-bible-verses.git"
   },
   "author": "mirai team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Mirai-org/bot-boilerplate/issues"
+    "url": "https://github.com/rotimi-best/learn-bible-verses/issues"
   },
-  "homepage": "https://github.com/Mirai-org/bot-boilerplate#readme",
+  "homepage": "https://github.com/rotimi-best/learn-bible-verses#readme",
   "dependencies": {
     "dotenv": "^8.1.0",
     "mongoose": "^5.7.5",
